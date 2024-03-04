@@ -16,3 +16,6 @@
 Install docker on your machine related to your OS using this [documentation](https://docs.docker.com/desktop/)
 1. Go to root folder `cd megogoTestTask`
 2. Execute command to build docker image `docker build -t {your image tag}`
+
+## Environment variables
+URL - base URL for API tests in format `{protocol}://{damain}`
