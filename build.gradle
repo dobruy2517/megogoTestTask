@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0' // or the latest version
+}
+
+group = 'org.megogo'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy:desiredVersion'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.4.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.1'
+    testImplementation 'io.qameta.allure:allure-junit5:2.16.0'
+    testImplementation 'io.qameta.allure:allure-commandline:2.16.0'
+    implementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.25.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.25.3'
+}
+
+configurations {
+    all*.exclude group: 'org.codehaus.groovy', module: 'groovy'
+}
+
+allure {
+    version = '2.13.8'
+}
+
+test {
+    useJUnitPlatform()
+    maxParallelForks = Runtime.runtime.availableProcessors()
+}
