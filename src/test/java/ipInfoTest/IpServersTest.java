@@ -16,14 +16,9 @@ import org.slf4j.LoggerFactory;
 import java.util.stream.Stream;
 
 @ExtendWith(AllureJunit5.class)
-public class IpServersTest {
-    private static final Logger logger = LoggerFactory.getLogger(APIClient.class);
+public class IpServersTest extends TestBase{
+    private static final Logger logger = LoggerFactory.getLogger(IpServersTest.class);
     protected APIClient apiClient = new APIClient(logger);
-
-    @BeforeAll
-    public static void setup() {
-        RestAssured.baseURI = "http://ip-api.com/json";
-    }
 
     static Stream<String> serversDomains() {
         return Stream.of(
